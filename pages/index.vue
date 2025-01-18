@@ -13,11 +13,27 @@ const cardList = ref<ICard[]>([
   {value: '280сс', description: 'Thoughtful structure of every detail', img: 'Photo-card-1.webp'},
 ])
 
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY >= 38;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
 </script>
 
 <template>
-  <AppHeader />
-  <main class="md:mt-[138px] mt-[30px]">
+  <AppHeader :scroll="isScrolled"/>
+  <main class="md:pt-[138px] pt-[30px]"
+  :class="{'mt-[122px]' : isScrolled}"
+  >
     <app-container>
       <section>
         <div class="max-w-[1048px] m-auto">
