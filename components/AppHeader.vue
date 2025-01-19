@@ -8,11 +8,11 @@ defineProps<{
   <header
       :class="[
       'top-0 bg-gray-100 md:text-2xl text-base flex items-center justify-between w-screen transition-all duration-200 ease-in-out z-50',
-      scroll ? 'fixed shadow' : 'relative'
+      scroll ? 'fixed' : 'relative'
     ]"
   >
      <app-container :class="[
-     'flex justify-between items-center w-full',
+     'flex justify-between items-end pb-4 w-full',
            scroll ? 'h-[84px] max-h-[84px]' : 'max-h-[122px] h-[122px]'
      ]"
      >
